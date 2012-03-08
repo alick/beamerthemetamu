@@ -14,9 +14,16 @@
 % frametitle tweak
 \setbeamertemplate{frametitle}
 {
-\vskip+1ex
+\vskip+.8ex
 \begin{centering}
   \insertframetitle\par
+  % subtitle stuff taken from beamerouterthemedefault.sty
+  {%
+  \ifx\insertframesubtitle\@empty%
+  \else%
+  {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+  \fi
+  }%
 \end{centering}
 }
 
