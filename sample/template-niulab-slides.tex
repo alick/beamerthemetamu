@@ -32,6 +32,7 @@
 \usepackage{listings} % for typesetting source code
 \usepackage{amsmath} % for math
 \usepackage{siunitx} % for si units
+\usepackage{biblatex}
 
 %%% Begin xetex related configuration
 %%% Uncomment these lines to be able to use Chinese.
@@ -125,6 +126,8 @@ unicode=true,
 \hypersetup{
 %pdfpagemode=FullScreen,
 }
+
+\addbibresource{refs}  % filename of .bib
 
 \begin{document}
 
@@ -250,22 +253,12 @@ and Soft Realtime Services}
 
 \begin{frame}{Summary}
   \begin{itemize}
-    \item Lots of thanks to the user guide\cite{beameruserguide}.
+    \item Lots of thanks to the user guide\footfullcite{beameruserguide}.
   \end{itemize}
 \end{frame}
 
 \appendix
 \section<presentation>*{\appendixname}
-\subsection<presentation>*{References}
-
-\begin{frame}[allowframebreaks]
-  \frametitle<presentation>{References}
-
-  \bibliographystyle{plain} % others: thubib
-  \def\thudot{}
-  \bibliography{refs}
-
-\end{frame}
 
 % Final logo page.
 {
