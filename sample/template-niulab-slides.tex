@@ -32,7 +32,7 @@
 \usepackage{listings} % for typesetting source code
 \usepackage{amsmath} % for math
 \usepackage{siunitx} % for si units
-\usepackage{biblatex}
+\usepackage[style=numeric-comp]{biblatex}
 
 %%% Begin xetex related configuration
 %%% Uncomment these lines to be able to use Chinese.
@@ -127,7 +127,58 @@ unicode=true,
 %pdfpagemode=FullScreen,
 }
 
-\addbibresource{refs}  % filename of .bib
+\ExecuteBibliographyOptions{citetracker=true,sorting=none}
+
+% Number of each bibliography entry in brackets
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+\makeatletter
+
+\newtoggle{cbx@togcite}
+
+% Citation number superscript in brackets
+\renewcommand\@makefntext[1]{%
+  \iftoggle{cbx@togcite}
+    {\@textsuperscript{\normalfont[\@thefnmark]}\enspace #1}
+    {\@textsuperscript{\normalfont\@thefnmark}\enspace #1}%
+  \global\togglefalse{cbx@togcite}}
+
+%---------------------------------------------------------------
+% Mostly verbatim from Joseph Wright
+% http://www.texdev.net/2010/03/08/biblatex-numbered-citations-as-footnotes/
+
+\DeclareCiteCommand{\sfcite}[\cbx@superscript]%
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{sfcite}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}}
+
+\newbibmacro*{sfcite}{%
+  \ifciteseen
+  {}
+  {\xappto\cbx@citehook{%
+   \global\toggletrue{cbx@togcite}%
+   \noexpand\footnotetext[\thefield{labelnumber}]{%
+     \fullcite{\thefield{entrykey}}\addperiod}}}}
+
+\newrobustcmd{\cbx@superscript}[1]{%
+  \mkbibsuperscript{\mkbibbrackets{#1}}%
+  \cbx@citehook%
+  \global\let\cbx@citehook=\empty}
+
+\let\cbx@citehook=\empty
+%---------------------------------------------------------------
+
+\addbibresource{refs.bib}  % filename of .bib
 
 \begin{document}
 
@@ -253,7 +304,7 @@ and Soft Realtime Services}
 
 \begin{frame}{Summary}
   \begin{itemize}
-    \item Lots of thanks to the user guide\footfullcite{beameruserguide}.
+    \item Lots of thanks to the user guide\sfcite{beameruserguide}.
   \end{itemize}
 \end{frame}
 
