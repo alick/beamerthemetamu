@@ -1,5 +1,5 @@
 PROJNAME=niulab-slides-template
-PROJVER=0.3git
+PROJVER=0.3
 PROJTARBALL=$(PROJNAME)-$(PROJVER).tar.gz
 
 THEMEDIR=themes
