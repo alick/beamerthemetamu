@@ -6,7 +6,7 @@ THEMEDIR=themes
 SAMPLEDIR=sample
 AUXFILES=README.txt
 
-TEXMFHOME="$(HOME)/.texmf/"
+TEXMFHOME=$(HOME)/.texmf
 
 SAMPLE=template-niulab-slides
 LATEX=xelatex
@@ -16,7 +16,7 @@ dist:
 	tar -zcvf $(PROJTARBALL) --exclude='*~' $(THEMEDIR) $(SAMPLEDIR) $(AUXFILES)
 
 install:
-	cp -rp themes $(TEXMFHOME)/tex/latex/beamer/
+	cp -rp themes "$(TEXMFHOME)/tex/latex/beamer/"
 
 test:
 	cd $(SAMPLEDIR) && \
