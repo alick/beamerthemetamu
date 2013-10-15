@@ -123,6 +123,17 @@ unicode=true,
 
 \ExecuteBibliographyOptions{citetracker=true,sorting=none}
 
+% Suppress publisher, location, note, etc. in citations.
+\AtEveryCitekey{%
+  %\ifentrytype{article}
+    %{\clearfield{title}}
+    %{}%
+  \clearlist{publisher}%
+  \clearlist{location}%
+  \clearfield{isbn}%
+  \clearfield{issn}%
+  \clearfield{note}}
+
 % Number of each bibliography entry in brackets
 \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
 
@@ -154,6 +165,10 @@ unicode=true,
     {}
     {\footnotetext[\thefield{labelnumber}]{%
        \usedriver{}{\thefield{entrytype}}.}}}
+
+% Decrease the footnote size.
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
 
 \addbibresource{refs.bib}  % path to the bib database
 
