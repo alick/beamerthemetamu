@@ -60,16 +60,6 @@ ItalicFont={AR PL UKai CN}]{AR PL UMing CN}
 
 \renewcommand\tablename{表格}
 
-% fix: navi button not working with XeTeX
-% SEE: http://bbs.ctex.org/viewthread.php?tid=64104
-\makeatletter
-\def\beamer@linkspace#1{%
-\begin{pgfpicture}{0pt}{-1.5pt}{#1}{5.5pt}
-\pgfsetfillopacity{0}
-\pgftext[x=0pt,y=-1.5pt]{.}
-\pgftext[x=#1,y=5.5pt]{.}
-\end{pgfpicture}}
-\makeatother
 %% End xetex related configuration
 \else
   \usepackage[utf8]{inputenc}
