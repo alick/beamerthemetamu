@@ -127,52 +127,35 @@ unicode=true,
 \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
 
 \makeatletter
-
-\newtoggle{cbx@togcite}
-
-% Citation number superscript in brackets
+% Citation number in brackets.
 \renewcommand\@makefntext[1]{%
-  \iftoggle{cbx@togcite}
-    {\@textsuperscript{\normalfont[\@thefnmark]}\enspace #1}
-    {\@textsuperscript{\normalfont\@thefnmark}\enspace #1}%
-  \global\togglefalse{cbx@togcite}}
+  \normalfont[\@thefnmark]\enspace #1}
+\makeatother
 
-%---------------------------------------------------------------
-% Mostly verbatim from Joseph Wright
-% http://www.texdev.net/2010/03/08/biblatex-numbered-citations-as-footnotes/
+% Provide \notefullcite for footnote citations.
+% cf. http://www.texdev.net/2010/03/08/biblatex-numbered-citations-as-footnotes/
 
-\DeclareCiteCommand{\sfcite}[\cbx@superscript]%
+% NOTE: for vanilla footnote coexistence, refer to
+% http://tex.stackexchange.com/questions/20754/tuning-numbered-citations-as-footnote
+% http://tex.stackexchange.com/questions/20787/biblatex-cite-with-footnote-only-once-with-use-of-brackets
+
+\DeclareCiteCommand{\notefullcite}[\mkbibbrackets]
   {\usebibmacro{cite:init}%
-   \let\multicitedelim=\supercitedelim
-   \iffieldundef{prenote}
-     {}
-     {\BibliographyWarning{Ignoring prenote argument}}%
-   \iffieldundef{postnote}
-     {}
-     {\BibliographyWarning{Ignoring postnote argument}}}
+   \usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
-   \usebibmacro{sfcite}%
+   \usebibmacro{notefullcite}%
    \usebibmacro{cite:comp}}
   {}
-  {\usebibmacro{cite:dump}}
+  {\usebibmacro{cite:dump}%
+   \usebibmacro{postnote}}
 
-\newbibmacro*{sfcite}{%
+\newbibmacro*{notefullcite}{%
   \ifciteseen
-  {}
-  {\xappto\cbx@citehook{%
-   \global\toggletrue{cbx@togcite}%
-   \noexpand\footnotetext[\thefield{labelnumber}]{%
-     \fullcite{\thefield{entrykey}}\addperiod}}}}
+    {}
+    {\footnotetext[\thefield{labelnumber}]{%
+       \usedriver{}{\thefield{entrytype}}.}}}
 
-\newrobustcmd{\cbx@superscript}[1]{%
-  \mkbibsuperscript{\mkbibbrackets{#1}}%
-  \cbx@citehook%
-  \global\let\cbx@citehook=\empty}
-
-\let\cbx@citehook=\empty
-%---------------------------------------------------------------
-
-\addbibresource{refs.bib}  % filename of .bib
+\addbibresource{refs.bib}  % path to the bib database
 
 \begin{document}
 
@@ -279,8 +262,7 @@ unicode=true,
   \begin{itemize}
     \item item 1
     \item item 2
-    \item item 3
-    \item item 4
+    \item Footnote citations~\notefullcite{beameruserguide,shannon1948}
   \end{itemize}
 \end{frame}
 
@@ -298,7 +280,7 @@ and Soft Realtime Services}
 
 \begin{frame}{Summary}
   \begin{itemize}
-    \item Lots of thanks to the user guide\sfcite{beameruserguide}.
+    \item Blah...
   \end{itemize}
 \end{frame}
 
