@@ -1,6 +1,6 @@
-\documentclass[usepdftitle=false]{beamer}
 % Set usepdftitle=false when \title{} contains complicated stuff.
-% Author: alick<alick9188@gmail.com>
+\documentclass[usepdftitle=false]{beamer}
+% Author: Alick Zhao <alick9188@gmail.com>
 % 带中文支持的、使用 Beamer 的 NiuLab 幻灯片模板
 % 使用 xelatex 编译
 
@@ -29,15 +29,17 @@
 
 \usepackage{graphicx} % includegraphics support (already specified)
 %\graphicspath{{fig/}} % directories that hold graphics
-\usepackage{listings} % for typesetting source code
 \usepackage{amsmath} % for math
+\usepackage{amssymb} % for additional math symbols
 \usepackage{siunitx} % for si units
 \usepackage[style=ieee]{biblatex}
+%\usepackage{listings} % for typesetting source code
+%\usepackage{algorithmic} % for typesetting algorithms
 
 \usepackage{iftex}
 \ifXeTeX
 %% Begin xetex related configuration
-%% Uncomment these lines to be able to use Chinese.
+%% Begin Chinese configuration
 \usepackage{fontspec}
 \usepackage[CJKchecksingle]{xeCJK}
 
@@ -45,6 +47,7 @@
 \punctstyle{kaiming}
 \renewcommand\CJKfamilydefault{\CJKsfdefault} % for slides
 
+% Begin Chinese font configuration on Linux
 \setCJKmainfont[BoldFont={WenQuanYi Micro Hei},
 ItalicFont={AR PL UKai CN}]{AR PL UMing CN}
 \setCJKsansfont{WenQuanYi Micro Hei}
@@ -53,12 +56,12 @@ ItalicFont={AR PL UKai CN}]{AR PL UMing CN}
 \setCJKfamilyfont{zhsong}{AR PL UMing CN}
 \setCJKfamilyfont{zhhei}{WenQuanYi Zen Hei}
 \setCJKfamilyfont{zhkai}{AR PL UKai CN}
+% End Chinese font configuration on Linux
 
 \newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
 \newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
 \newcommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
-
-\renewcommand\tablename{表格}
+%% End Chinese configuration
 
 %% End xetex related configuration
 \else
@@ -115,11 +118,12 @@ unicode=true,
 %\beamerdefaultoverlayspecification{<+->}
 
 % listings setup
-\lstset{basicstyle=\ttfamily,breaklines=true}
+%\lstset{basicstyle=\ttfamily,breaklines=true}
+
 % hyperref setup
-\hypersetup{
+%\hypersetup{
 %pdfpagemode=FullScreen,
-}
+%}
 
 \ExecuteBibliographyOptions{citetracker=true,sorting=none}
 
@@ -185,7 +189,7 @@ unicode=true,
 \end{frame}
 }
 
-\begin{frame}{Contents}
+\begin{frame}{Outline}
 \tableofcontents
 % You might wish to add the option [pausesections]
 \end{frame}
@@ -227,8 +231,6 @@ unicode=true,
   \end{itemize}
 \end{frame}
 
-% TODO:
-% Can blocks have transparent background?
 \begin{frame}
   \frametitle{A Block Example}
   \begin{block}{Computers/computing everywhere --- $10^4$ CPUs per person}
@@ -240,16 +242,26 @@ unicode=true,
   \end{block}
 \end{frame}
 
+\begin{frame}{Pictures in Columns}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{niulab_titlepage_bg}
+        \caption{A sample figure.}
+      \end{figure}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{niulab_logopage}
+        \caption{Another sample figure.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
 
-%\begin{frame}{Picture}
-%  \begin{figure}[h]
-%    \centering
-%    \includegraphics[scale=0.4]{foo.png}
-%    \caption{}
-%  \end{figure}
-%\end{frame}
-
-\begin{frame}{Formulars}
+\begin{frame}{Formulas}
   \begin{itemize}
     \item Electromagnetic Wave
       \begin{itemize}
@@ -278,8 +290,8 @@ unicode=true,
   \frametitle{Title}
   \framesubtitle{Subtitle}
   \begin{itemize}
-    \item item 1
-    \item item 2
+    \item Item 1
+    \item Item 2
     \item Footnote citations~\notefullcite{beameruserguide,shannon1948}
   \end{itemize}
 \end{frame}
@@ -298,7 +310,11 @@ and Soft Realtime Services}
 
 \begin{frame}{Summary}
   \begin{itemize}
-    \item Blah...
+    \item Lorem ipsum
+  \end{itemize}
+  \vspace{1cm}
+  \begin{itemize}
+    \item An outlook to the future.
   \end{itemize}
 \end{frame}
 
