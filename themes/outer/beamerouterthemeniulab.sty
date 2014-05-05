@@ -32,7 +32,11 @@
   \leavevmode%
   \hbox{%
   \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{page number in head/foot}%
-    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \ifbeamer@onlycurpagenum
+      \insertframenumber{}\hspace*{2ex}
+    \else
+      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \fi
   \end{beamercolorbox}}%
   \vskip0pt%
 }

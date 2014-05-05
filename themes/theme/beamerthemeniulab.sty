@@ -9,6 +9,12 @@
 
 \mode<presentation>
 
+\newif\ifbeamer@onlycurpagenum
+\beamer@onlycurpagenumfalse
+
+\DeclareOptionBeamer{onlycurpagenum}{\beamer@onlycurpagenumtrue}
+\ProcessOptionsBeamer
+
 %\usetheme[secheader]{Boadilla} % with header and footer
 \useinnertheme{niulab}
 \useoutertheme{niulab}
