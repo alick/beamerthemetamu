@@ -16,8 +16,8 @@ LATEXMK=latexmk
 dist:
 	tar -zcvf $(PROJTARBALL) --exclude='*~' $(THEMEDIR) $(SAMPLEDIR) $(AUXFILES)
 
-install:
-	cp -rp themes "$(TEXMFHOME)/tex/latex/beamer/"
+install: dist
+	tar xvf $(PROJTARBALL) -C "$(TEXMFHOME)/tex/latex/beamer/"
 
 test: install
 ifeq ($(LATEXMK),)
