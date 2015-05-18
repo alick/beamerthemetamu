@@ -17,6 +17,7 @@ dist:
 	tar -zcvf $(PROJTARBALL) --exclude='*~' $(THEMEDIR) $(SAMPLEDIR) $(AUXFILES)
 
 install: dist
+	mkdir -p "$(TEXMFHOME)/tex/latex/beamer/"
 	tar xvf $(PROJTARBALL) -C "$(TEXMFHOME)/tex/latex/beamer/"
 
 test: install
