@@ -13,6 +13,8 @@ LATEX=xelatex
 BIBTEX=biber
 LATEXMK=latexmk
 
+.PHONY: dist install test clean
+
 dist:
 	tar -zcvf $(PROJTARBALL) --exclude='*~' $(THEMEDIR) $(SAMPLEDIR) $(AUXFILES)
 
@@ -20,15 +22,15 @@ install: dist
 	mkdir -p "$(TEXMFHOME)/tex/latex/beamer/"
 	tar xvf $(PROJTARBALL) -C "$(TEXMFHOME)/tex/latex/beamer/"
 
-test: install
-ifeq ($(LATEXMK),)
+test:
 	cd $(SAMPLEDIR) && \
-	$(LATEX) $(SAMPLE) && \
-	$(BIBTEX) $(SAMPLE) && \
-	$(LATEX) $(SAMPLE) && \
-	$(LATEX) $(SAMPLE)
-else
-	cd $(SAMPLEDIR) && \
-	$(LATEXMK) -c $(SAMPLE) && \
+	find ../themes/ \( -name '*niulab.sty' -o -name 'niulab*.pdf' \) -exec cp '{}' ./ \; && \
+	$(LATEXMK) -C $(SAMPLE) && \
 	$(LATEXMK) -pdf -pv $(SAMPLE)
-endif
+
+clean:
+	cd $(SAMPLEDIR) && \
+	$(LATEXMK) -C $(SAMPLE) && \
+	rm -rf *niulab.sty niulab*.pdf
+	find . \( -name '*~' -o -name '*.swp' \) -delete
+	rm -rf *.tar.gz
