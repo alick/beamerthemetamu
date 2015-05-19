@@ -9,12 +9,16 @@
 
 \mode<presentation>
 
-\useoutertheme{default}
+\ifbeamer@secheader
+  \useoutertheme{infolines}
+\else
+  \useoutertheme{default}
+\fi
 
 % frametitle tweak
 \setbeamertemplate{frametitle}
 {
-\vskip+.8ex
+\ifbeamer@secheader\vskip-.2ex\else\vskip+.8ex\fi
 \begin{centering}
   \insertframetitle\par
   % subtitle stuff taken from beamerouterthemedefault.sty

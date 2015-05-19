@@ -1,6 +1,7 @@
 % Set usepdftitle=false when \title{} contains complicated stuff.
 % Set onlycurpagenum when you do not want to show total page number.
-\documentclass[usepdftitle=false,onlycurpagenum]{beamer}
+% Set secheader if you want to show a headline with (sub)section names.
+\documentclass[usepdftitle=false,onlycurpagenum,secheader]{beamer}
 % Author: Alick Zhao <alick9188@gmail.com>
 % 带中文支持的、使用 Beamer 的 NiuLab 幻灯片模板
 % 使用 xelatex 编译
@@ -185,7 +186,7 @@ unicode=true,
 {
 \usebackgroundtemplate{%
 \includegraphics[width=\paperwidth,height=\paperheight]{niulab_titlepage_bg.pdf}}
-\begin{frame}
+\begin{frame}[plain]
 \titlepage
 \end{frame}
 }
@@ -326,7 +327,7 @@ and Soft Realtime Services}
 {
 \usebackgroundtemplate{%
 \includegraphics[width=\paperwidth,height=\paperheight]{niulab_logopage.pdf}}
-\begin{frame}
+\begin{frame}[plain]
 \end{frame}
 }
 \end{document}

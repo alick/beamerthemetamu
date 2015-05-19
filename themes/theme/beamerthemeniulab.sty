@@ -11,8 +11,10 @@
 
 \newif\ifbeamer@onlycurpagenum
 \beamer@onlycurpagenumfalse
-
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
 \DeclareOptionBeamer{onlycurpagenum}{\beamer@onlycurpagenumtrue}
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
 \ProcessOptionsBeamer
 
 %\usetheme[secheader]{Boadilla} % with header and footer
