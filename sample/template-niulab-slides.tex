@@ -1,7 +1,8 @@
 % Set usepdftitle=false when \title{} contains complicated stuff.
 % Set onlycurpagenum when you do not want to show total page number.
 % Set secheader if you want to show a headline with (sub)section names.
-\documentclass[usepdftitle=false,onlycurpagenum,secheader]{beamer}
+% Set infolines if you want to show a headline and a footline.
+\documentclass[usepdftitle=false,onlycurpagenum,infolines]{beamer}
 % Author: Alick Zhao <alick9188@gmail.com>
 % 带中文支持的、使用 Beamer 的 NiuLab 幻灯片模板
 % 使用 xelatex 编译
@@ -70,11 +71,11 @@ ItalicFont={AR PL UKai CN}]{AR PL UMing CN}
   \usepackage[utf8]{inputenc}
 \fi
 
-\title
+\title[GREEN Wireless Communications]%
 {\textcolor{green!50!black}{GREEN} \alert{Wireless Communications}}
-\hypersetup{pdftitle=GREEN Wireless Communications}
+\hypersetup{pdftitle=}
 
-\author[short] % (optional, use only with lots of authors)
+\author[Z. Niu] % (optional, use only with lots of authors)
 {Zhisheng NIU}
 
 \def\niulab{%
@@ -83,7 +84,7 @@ ItalicFont={AR PL UKai CN}]{AR PL UMing CN}
 (\alert{NiuLab})%
 }
 
-\institute[short] % (optional, but mostly needed)
+\institute[NiuLab] % (optional, but mostly needed)
 {
 \niulab\\
 Tsinghua University, Beijing, China
@@ -93,7 +94,7 @@ Tsinghua University, Beijing, China
 
 %\date % (optional)
 %{\today}
-\date{}
+\date[IEEE Conf. 2015]{}
 
 %\subject{Talks}
 

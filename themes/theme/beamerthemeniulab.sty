@@ -11,9 +11,12 @@
 
 \newif\ifbeamer@onlycurpagenum
 \beamer@onlycurpagenumfalse
+\newif\ifbeamer@infolines
+\beamer@infolinesfalse
 \newif\ifbeamer@secheader
 \beamer@secheaderfalse
 \DeclareOptionBeamer{onlycurpagenum}{\beamer@onlycurpagenumtrue}
+\DeclareOptionBeamer{infolines}{\beamer@infolinestrue}
 \DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
 \ProcessOptionsBeamer
 

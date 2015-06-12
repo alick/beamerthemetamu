@@ -9,16 +9,20 @@
 
 \mode<presentation>
 
-\ifbeamer@secheader
+\ifbeamer@infolines
   \useoutertheme{infolines}
 \else
-  \useoutertheme{default}
+  \ifbeamer@secheader
+    \useoutertheme{infolines}
+  \else
+    \useoutertheme{default}
+  \fi
 \fi
 
 % frametitle tweak
 \setbeamertemplate{frametitle}
 {
-\ifbeamer@secheader\vskip-.2ex\else\vskip+.8ex\fi
+\ifbeamer@secheader\vskip-.2ex\else\ifbeamer@infolines\vskip-.2ex\else\vskip+.8ex\fi\fi
 \begin{centering}
   \insertframetitle\par
   % subtitle stuff taken from beamerouterthemedefault.sty
@@ -31,6 +35,28 @@
 \end{centering}
 }
 
+\ifbeamer@infolines
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}
+      \ifbeamer@onlycurpagenum\hspace*{5em}
+	\insertframenumber{}\hspace*{2ex}
+      \else\hspace*{2em}
+	\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+      \fi
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\else
 \setbeamertemplate{footline}
 {
   \leavevmode%
@@ -44,6 +70,7 @@
   \end{beamercolorbox}}%
   \vskip0pt%
 }
+\fi
 
 \mode
 <all>
