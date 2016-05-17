@@ -1,11 +1,8 @@
-% Set usepdftitle=false when \title{} contains complicated stuff.
 % Set onlycurpagenum when you do not want to show total page number.
 % Set secheader if you want to show a headline with (sub)section names.
 % Set infolines if you want to show a headline and a footline.
-\documentclass[usepdftitle=false,onlycurpagenum,infolines]{beamer}
+\documentclass[onlycurpagenum,infolines]{beamer}
 % Author: Alick Zhao <alick9188@gmail.com>
-% 带中文支持的、使用 Beamer 的 NiuLab 幻灯片模板
-% 使用 xelatex 编译
 
 % This file is modified from a solution template for:
 
@@ -27,7 +24,7 @@
 
 \mode<presentation>
 {
-\usetheme{niulab}
+\usetheme{tamu}
 } % end of mode presentation
 
 \usepackage{graphicx} % includegraphics support (already specified)
@@ -41,67 +38,34 @@
 
 \usepackage{iftex}
 \ifXeTeX
-%% Begin xetex related configuration
-%% Begin Chinese configuration
 \usepackage{fontspec}
-\usepackage[CJKchecksingle]{xeCJK}
-
-% xeCJK conf setup
-\punctstyle{kaiming}
-\renewcommand\familydefault{\sfdefault} % for slides
-
-% Begin Chinese font configuration on Linux
-\setCJKmainfont[BoldFont={WenQuanYi Micro Hei},
-ItalicFont={AR PL UKai CN}]{AR PL UMing CN}
-\setCJKsansfont{WenQuanYi Micro Hei}
-\setCJKmonofont{WenQuanYi Micro Hei Mono}
-
-\setCJKfamilyfont{zhsong}{AR PL UMing CN}
-\setCJKfamilyfont{zhhei}{WenQuanYi Zen Hei}
-\setCJKfamilyfont{zhkai}{AR PL UKai CN}
-% End Chinese font configuration on Linux
-
-\newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
-\newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
-\newcommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
-%% End Chinese configuration
-
-%% End xetex related configuration
+%\renewcommand\familydefault{\sfdefault} % for slides
 \else
   \usepackage[utf8]{inputenc}
 \fi
 
-\title[GREEN Wireless Communications]%
-{\textcolor{green!50!black}{GREEN} \alert{Wireless Communications}}
-\hypersetup{pdftitle=}
+\newcommand*{\tamu}{Texas A\&M University}
 
-\author[Z. Niu] % (optional, use only with lots of authors)
-{Zhisheng NIU}
+\title{Beamer Template for \tamu}
 
-\def\niulab{%
-\alert{N}etwork \alert{I}ntegration for \alert{U}biquitous %
-\alert{L}inkage \alert{a}nd \alert{B}roadband%
-(\alert{NiuLab})%
-}
+\author{Alick Zhao}
 
-\institute[NiuLab] % (optional, but mostly needed)
+\institute[TAMU] % (optional, but mostly needed)
 {
-\niulab\\
-Tsinghua University, Beijing, China
+\tamu
 }
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
 
-%\date % (optional)
-%{\today}
-\date[IEEE Conf. 2015]{}
+\date % (optional)
+{\today}
 
 %\subject{Talks}
 
 \hypersetup{
-pdfauthor={Zhisheng NIU},
+pdfauthor={Alick Zhao},
 pdfsubject={Talks},
-pdfkeywords={GREEN,Wireless,Communications},
+pdfkeywords={beamer,TAMU,theme},
 unicode=true,
 }
 
@@ -185,8 +149,8 @@ unicode=true,
 \begin{document}
 
 {
-\usebackgroundtemplate{%
-\includegraphics[width=\paperwidth,height=\paperheight]{niulab_titlepage_bg.pdf}}
+%\usebackgroundtemplate{%
+%\includegraphics[width=\paperwidth,height=\paperheight]{tamu_titlepage_bg.pdf}}
 \begin{frame}[plain]
 \titlepage
 \end{frame}
@@ -208,7 +172,7 @@ unicode=true,
 % - Talk about 30s to 2min per frame. So there should be between about
 %   15 and 30 frames, all told.
 
-\section{Information Technology in 2020}
+\section{Sample Section}
 
 \begin{frame}
   \frametitle{Computing Everywhere in 2020}
@@ -250,14 +214,14 @@ unicode=true,
     \begin{column}{.5\textwidth}
       \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{niulab_titlepage_bg}
+        %\includegraphics[width=\textwidth]{tamu_titlepage_bg}
         \caption{A sample figure.}
       \end{figure}
     \end{column}
     \begin{column}{.5\textwidth}
       \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{niulab_logopage}
+        %\includegraphics[width=\textwidth]{tamu_finalpage_bg}
         \caption{Another sample figure.}
       \end{figure}
     \end{column}
@@ -324,15 +288,10 @@ unicode=true,
   \end{itemize}
 \end{frame}
 
-\section{Vision and Mission of \protect\alert{NiuLab}}
-\section{Current Major Research Topics}
-\subsection{Multi-AP Diversity for Interference Avoidance}
-\subsection{Cooperative Diversity for Opportunistic Scheduling}
-\subsection{Integrated Communication and Broadcast NW for Data-casting
-and Soft Realtime Services}
-\subsection{\protect\alert{GREEN}: %
-\protect\alert{G}lobally \protect\alert{R}esource-optimized \& %
-\protect\alert{E}nergy-\protect\alert{E}fficient \protect\alert{N}W}
+\section{Various Samples}
+\subsection{Sample Subsection}
+\subsection{Another Sample Subsection}
+\subsection{Yet Another Sample Subsection}
 
 \section{Summary}
 
@@ -349,10 +308,10 @@ and Soft Realtime Services}
 \appendix
 \section<presentation>*{\appendixname}
 
-% Final logo page.
+% Final page.
 {
-\usebackgroundtemplate{%
-\includegraphics[width=\paperwidth,height=\paperheight]{niulab_logopage.pdf}}
+%\usebackgroundtemplate{%
+%\includegraphics[width=\paperwidth,height=\paperheight]{tamu_finalpage_bg.pdf}}
 \begin{frame}[plain]
 \end{frame}
 }

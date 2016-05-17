@@ -1,0 +1,43 @@
+% Copyright 2012 by Alick Zhao
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\mode<presentation>
+
+\usecolortheme[RGB={80,0,0}]{structure}
+\usecolortheme{orchid}
+\ifbeamer@secheader
+  \usecolortheme{dolphin}
+  \else
+  \ifbeamer@infolines
+    \usecolortheme{dolphin}
+  \fi
+\fi
+
+% Colors from TAMU brand guide
+% cf. http://brandguide.tamu.edu/downloads/colors/brandColors-RGB.pdf
+%
+% Primary color
+\definecolor{tamumaroon}{RGB}{80,0,0}
+% Support color
+\definecolor{tamugray}{RGB}{51,44,44}
+
+% title page tweak
+\setbeamercolor{author}{fg=tamumaroon}
+\setbeamercolor{date}{fg=tamumaroon}
+\setbeamercolor{institute}{fg=tamumaroon}
+
+% frametitle tweak
+\setbeamercolor{frametitle}{fg=black}
+
+% itemize/enumerate tweak
+\setbeamercolor{itemize/enumerate body}{fg=tamumaroon}
+\setbeamercolor{itemize/enumerate subbody}{fg=black}
+
+\mode
+<all>

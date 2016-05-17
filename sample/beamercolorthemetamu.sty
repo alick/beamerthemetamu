@@ -9,7 +9,7 @@
 
 \mode<presentation>
 
-\usecolortheme[rgb={0,0,0.8}]{structure}
+\usecolortheme[RGB={80,0,0}]{structure}
 \usecolortheme{orchid}
 \ifbeamer@secheader
   \usecolortheme{dolphin}
@@ -18,18 +18,25 @@
     \usecolortheme{dolphin}
   \fi
 \fi
-\definecolor{niulabblue}{rgb}{0,0,0.8}
+
+% Colors from TAMU brand guide
+% cf. http://brandguide.tamu.edu/downloads/colors/brandColors-RGB.pdf
+%
+% Primary color
+\definecolor{tamumaroon}{RGB}{80,0,0}
+% Support color
+\definecolor{tamugray}{RGB}{51,44,44}
 
 % title page tweak
-\setbeamercolor{author}{fg=niulabblue}
-\setbeamercolor{date}{fg=niulabblue}
-\setbeamercolor{institute}{fg=niulabblue}
+\setbeamercolor{author}{fg=tamumaroon}
+\setbeamercolor{date}{fg=tamumaroon}
+\setbeamercolor{institute}{fg=tamumaroon}
 
 % frametitle tweak
 \setbeamercolor{frametitle}{fg=black}
 
 % itemize/enumerate tweak
-\setbeamercolor{itemize/enumerate body}{fg=niulabblue}
+\setbeamercolor{itemize/enumerate body}{fg=tamumaroon}
 \setbeamercolor{itemize/enumerate subbody}{fg=black}
 
 \mode

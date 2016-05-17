@@ -1,4 +1,4 @@
-PROJNAME=niulab-slides-template
+PROJNAME=beamerthemetamu
 PROJVER=`git describe`
 PROJTARBALL=$(PROJNAME)-$(PROJVER).tar.gz
 
@@ -6,9 +6,9 @@ THEMEDIR=themes
 SAMPLEDIR=sample
 AUXFILES=README.txt
 
-TEXMFHOME=$(HOME)/.texmf
+TEXMFHOME=`kpsewhich -var-value TEXMFHOME`
 
-SAMPLE=template-niulab-slides
+SAMPLE=sample
 LATEX=xelatex
 BIBTEX=biber
 LATEXMK=latexmk
@@ -24,13 +24,13 @@ install: dist
 
 test:
 	cd $(SAMPLEDIR) && \
-	find ../themes/ \( -name '*niulab.sty' -o -name 'niulab*.pdf' \) -exec cp '{}' ./ \; && \
+	find ../themes/ \( -name '*tamu.sty' -o -name 'tamu*.pdf' \) -exec cp '{}' ./ \; && \
 	$(LATEXMK) -C $(SAMPLE) && \
-	$(LATEXMK) -pdf -pv $(SAMPLE)
+	$(LATEXMK) $(SAMPLE)
 
 clean:
 	cd $(SAMPLEDIR) && \
 	$(LATEXMK) -C $(SAMPLE) && \
-	rm -rf *niulab.sty niulab*.pdf
+	rm -rf *tamu.sty tamu*.pdf
 	find . \( -name '*~' -o -name '*.swp' \) -delete
 	rm -rf *.tar.gz
