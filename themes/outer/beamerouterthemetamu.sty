@@ -19,22 +19,6 @@
   \fi
 \fi
 
-% frametitle tweak
-\setbeamertemplate{frametitle}
-{
-\ifbeamer@secheader\vskip-.2ex\else\ifbeamer@infolines\vskip-.2ex\else\vskip+.8ex\fi\fi
-\begin{centering}
-  \insertframetitle\par
-  % subtitle stuff taken from beamerouterthemedefault.sty
-  {%
-  \ifx\insertframesubtitle\@empty%
-  \else%
-  {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
-  \fi
-  }%
-\end{centering}
-}
-
 \ifbeamer@infolines
 \setbeamertemplate{footline}
 {
