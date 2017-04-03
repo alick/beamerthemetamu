@@ -1,7 +1,7 @@
 % Set onlycurpagenum when you do not want to show total page number.
 % Set secheader if you want to show a headline with (sub)section names.
 % Set infolines if you want to show a headline and a footline.
-\documentclass[onlycurpagenum,infolines]{beamer}
+\documentclass[onlycurpagenum,infolines,xcolor=table]{beamer}
 % Author: Alick Zhao <alick9188@gmail.com>
 
 % This file is modified from a solution template for:
@@ -45,6 +45,10 @@
 \fi
 
 \usepackage{calligra}
+\usepackage{colortbl}
+\colorlet{tableheader}{blue!40}
+\colorlet{oddrow}{blue!20}
+\colorlet{evenrow}{blue!10}
 
 \newcommand*{\tamu}{Texas A\&M University}
 
@@ -175,7 +179,7 @@ unicode=true,
 \section{Sample Section}
 
 \begin{frame}
-  \frametitle{Computing Everywhere in 2020}
+  \frametitle{Bullet Items}
   \begin{itemize}
     \item Computers/computing everywhere --- $10^4$ CPUs per person
       \begin{itemize}
@@ -209,19 +213,28 @@ unicode=true,
   \end{block}
 \end{frame}
 
-\begin{frame}{Pictures in Columns}
+\begin{frame}{Figure/Table in Columns}
   \begin{columns}
     \begin{column}{.5\textwidth}
       \begin{figure}[htbp]
         \centering
+        \includegraphics[width=\textwidth]{tamu-logo.pdf}
         \caption{A sample figure.}
       \end{figure}
     \end{column}
     \begin{column}{.5\textwidth}
-      \begin{figure}[htbp]
+      \begin{table}[htbp]
         \centering
-        \caption{Another sample figure.}
-      \end{figure}
+        \caption{A sample table.}
+        \label{tab:sample}
+        \rowcolors{2}{oddrow}{evenrow}
+        \begin{tabular}{ccc}
+          \rowcolor{tableheader}
+          Header & Value \\
+          Even & $2$\\
+          Odd & $3$\\
+        \end{tabular}
+      \end{table}
     \end{column}
   \end{columns}
 \end{frame}
