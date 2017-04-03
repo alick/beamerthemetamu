@@ -44,11 +44,14 @@
   \usepackage[utf8]{inputenc}
 \fi
 
+\usepackage{calligra}
+
 \newcommand*{\tamu}{Texas A\&M University}
 
 \title{Beamer Template for \tamu}
 
-\author{Alick Zhao}
+\newcommand*{\theauthor}{Alick Zhao}
+\author{\theauthor}
 
 \institute[TAMU] % (optional, but mostly needed)
 {
@@ -305,6 +308,14 @@ unicode=true,
 
 % Final page.
 \begin{frame}[plain]
+  \begin{center}
+    {\Huge\calligra Thank you!\\}
+    \bigskip
+    \theauthor\\
+    \nolinkurl{alick9188@gmail.com}\\
+    \smallskip
+    \includegraphics[scale=.5]{tamu-logo.pdf}
+  \end{center}
 \end{frame}
 \end{document}
 %%% vim: set sw=2 isk+=\: et tw=70 formatoptions+=mM:
