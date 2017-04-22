@@ -2,15 +2,15 @@ PROJNAME=beamerthemetamu
 PROJVER=`git describe`
 PROJTARBALL=$(PROJNAME)-$(PROJVER).tar.gz
 
-THEMEDIR=themes
+THEMEDIR=theme
 SAMPLEDIR=sample
-AUXFILES=README.txt
+THEMEFILES=beamercolorthemetamu.sty beamerfontthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty tamu-logo.pdf
+SAMPLEFILES=beamerthemetamu.tex beamerthemetamu-refs.bib
+AUXFILES=README.txt Makefile
 
 TEXMFHOME=`kpsewhich -var-value TEXMFHOME`
 
-SAMPLE=sample
-LATEX=xelatex
-BIBTEX=biber
+SAMPLE=$(PROJNAME)
 LATEXMK=latexmk
 
 .PHONY: dist install test clean
@@ -18,9 +18,12 @@ LATEXMK=latexmk
 dist:
 	tar -zcvf $(PROJTARBALL) --exclude='*~' $(THEMEDIR) $(SAMPLEDIR) $(AUXFILES)
 
-install: dist
-	mkdir -p "$(TEXMFHOME)/tex/latex/beamer/"
-	tar xvf $(PROJTARBALL) -C "$(TEXMFHOME)/tex/latex/beamer/"
+install:
+	install -d "$(TEXMFHOME)/tex/latex/$(PROJNAME)/"
+	cd $(THEMEDIR) && install -t "$(TEXMFHOME)/tex/latex/$(PROJNAME)/" $(THEMEFILES)
+	install -d "$(TEXMFHOME)/doc/latex/$(PROJNAME)/"
+	cd $(SAMPLEDIR) && install -t "$(TEXMFHOME)/doc/latex/$(PROJNAME)/" $(SAMPLEFILES)
+	install -t "$(TEXMFHOME)/doc/latex/$(PROJNAME)/" $(AUXFILES)
 
 test:
 	cd $(SAMPLEDIR) && \
