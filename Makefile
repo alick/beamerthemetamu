@@ -4,7 +4,7 @@ PROJTARBALL=$(PROJNAME)-$(PROJVER).tar.gz
 
 THEMEDIR=theme
 SAMPLEDIR=sample
-THEMEFILES=beamercolorthemetamu.sty beamerfontthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty tamu-logo.pdf
+THEMEFILES=beamercolorthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty tamu-logo.pdf
 SAMPLEFILES=beamerthemetamu.tex beamerthemetamu-refs.bib
 AUXFILES=README.txt Makefile
 
