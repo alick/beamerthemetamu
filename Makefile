@@ -5,7 +5,8 @@ PROJTARBALL=$(PROJNAME)-$(PROJVER).tar.gz
 THEMEDIR=theme
 SAMPLEDIR=sample
 THEMEFILES=beamercolorthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty tamu-logo.pdf
-SAMPLEFILES=beamerthemetamu.tex beamerthemetamu-refs.bib
+SAMPLEFILES=beamerthemetamu.tex
+BIBFILES=beamerthemetamu-refs.bib
 AUXFILES=README.txt Makefile
 
 TEXMFHOME=`kpsewhich -var-value TEXMFHOME`
@@ -24,6 +25,8 @@ install:
 	install -d "$(TEXMFHOME)/doc/latex/$(PROJNAME)/"
 	cd $(SAMPLEDIR) && install -t "$(TEXMFHOME)/doc/latex/$(PROJNAME)/" $(SAMPLEFILES)
 	install -t "$(TEXMFHOME)/doc/latex/$(PROJNAME)/" $(AUXFILES)
+	install -d "$(TEXMFHOME)/bibtex/bib/$(PROJNAME)/"
+	cd $(SAMPLEDIR) && install -t "$(TEXMFHOME)/bibtex/bib/$(PROJNAME)/" $(BIBFILES)
 
 test:
 	cd $(SAMPLEDIR) && \
