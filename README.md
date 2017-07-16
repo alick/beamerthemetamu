@@ -16,12 +16,13 @@ The template is based on beamer, so you should have beamer installed.
 Installation:
 -------------
 
-Linux users can use the `Makefile` to install. Open a terminal and change to
+If you are on Linux, and have obtained the theme via GitHub directly, you can
+take advantage of the `Makefile` to install. Open a terminal and change to
 the top directory of this package. Issue:
 
     make install
 
-Other users can directly copy the files in the `theme/` directory of this
+Otherwise, you can directly copy the files in the `theme/` directory of this
 package into your `$TEXMFHOME/tex/latex/beamerthemetamu/` directory, where
 `$TEXMFHOME` stands for your personal texmf tree directory. As with TeX Live,
 it defaults to `$HOME/texmf` under Unix. For Windows (Vista and newer),
