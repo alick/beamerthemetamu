@@ -5,11 +5,8 @@ This is a beamer theme designed for use in Texas A&M University (TAMU).
 It can be used to create slides with
 [TAMU brand colors](http://brandguide.tamu.edu/colors.html).
 
-Note that this template is NOT endorsed by the university. There is no
+Note that this theme is NOT endorsed by the university. There is no
 warranty implied.
-
-Please refer to [this page](http://brandguide.tamu.edu/logos-downloads.html)
-regarding the usage of the university logo.
 
 Dependencies:
 -------------
@@ -49,6 +46,12 @@ Note the sample file depends on the bib source file `beamerthemetamu-refs.bib`.
 To output PDF file with correct citation info, you need to copy it along with
 your tex file, or modify the tex file to use your own bib file, or just delete
 all bib related stuff in the tex file.
+
+This theme can optionally show the university logo in the slides if you have
+a file called `tamu-logo.pdf` in the same directory as the sample file, or some
+other directory in the standard TeX search path. The university logo can be
+downloaded at [TAMU website](http://brandguide.tamu.edu/logos-downloads.html).
+Please refer to the page regarding the usage guideline of the university logo.
 
 License
 -------

@@ -155,9 +155,14 @@ unicode=true,
 % Disable the navigation symbol bar.
 \beamertemplatenavigationsymbolsempty
 
+\newcommand*{\tamulogo}{%
+\IfFileExists{tamu-logo.pdf}{%
+\includegraphics[scale=.5]{tamu-logo.pdf}}{%
+}}
+
 \begin{document}
 
-\titlegraphic{\includegraphics[scale=.5]{tamu-logo.pdf}}
+\titlegraphic{\tamulogo}
 \begin{frame}
 \titlepage
 \end{frame}
@@ -220,7 +225,7 @@ unicode=true,
     \begin{column}{.5\textwidth}
       \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{tamu-logo.pdf}
+        \includegraphics{beamericonarticle.pdf}
         \caption{A sample figure.}
       \end{figure}
     \end{column}
@@ -329,7 +334,7 @@ unicode=true,
     \theauthor\\
     \nolinkurl{alick9188@gmail.com}\\
     \smallskip
-    \includegraphics[scale=.5]{tamu-logo.pdf}
+    \tamulogo
   \end{center}
 \end{frame}
 \end{document}
