@@ -1,7 +1,9 @@
-TAMU Slides Template
-======================
+beamerthemetamu v1.1
+====================
 
-This is a beamer theme designed for use in Texas A&M University.
+This is a beamer theme designed for use in Texas A&M University (TAMU).
+It can be used to create slides with
+[TAMU brand colors](http://brandguide.tamu.edu/colors.html).
 
 Note that this template is NOT endorsed by the university. There is no
 warranty implied.
