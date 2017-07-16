@@ -7,7 +7,7 @@ SAMPLEDIR=sample
 THEMEFILES=beamercolorthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty tamu-logo.pdf
 SAMPLEFILES=beamerthemetamu.tex
 BIBFILES=beamerthemetamu-refs.bib
-AUXFILES=README.txt Makefile
+AUXFILES=README.md Makefile
 
 TEXMFHOME=`kpsewhich -var-value TEXMFHOME`
 
