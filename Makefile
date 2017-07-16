@@ -27,7 +27,7 @@ install:
 
 test:
 	cd $(SAMPLEDIR) && \
-	find ../themes/ \( -name '*tamu.sty' -o -name 'tamu*.pdf' \) -exec cp '{}' ./ \; && \
+	find ../$(THEMEDIR)/ \( -name '*tamu.sty' -o -name 'tamu*.pdf' \) -exec cp '{}' ./ \; && \
 	$(LATEXMK) -C $(SAMPLE) && \
 	$(LATEXMK) $(SAMPLE)
 
