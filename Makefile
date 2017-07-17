@@ -4,7 +4,7 @@ PROJTARBALL=$(PROJNAME)-$(PROJVER).tar.gz
 
 THEMEDIR=theme
 SAMPLEDIR=sample
-THEMEFILES=beamercolorthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty tamu-logo.pdf
+THEMEFILES=beamercolorthemetamu.sty beamerinnerthemetamu.sty beamerouterthemetamu.sty beamerthemetamu.sty
 SAMPLEFILES=beamerthemetamu.tex
 BIBFILES=beamerthemetamu-refs.bib
 AUXFILES=README.md Makefile
@@ -14,7 +14,7 @@ TEXMFHOME=`kpsewhich -var-value TEXMFHOME`
 SAMPLE=$(PROJNAME)
 LATEXMK=latexmk
 
-.PHONY: dist install test clean
+.PHONY: dist install test ctan clean
 
 dist:
 	tar -zcvf $(PROJTARBALL) --exclude='*~' $(THEMEDIR) $(SAMPLEDIR) $(AUXFILES)
@@ -33,6 +33,11 @@ test:
 	find ../$(THEMEDIR)/ \( -name '*tamu.sty' -o -name 'tamu*.pdf' \) -exec cp '{}' ./ \; && \
 	$(LATEXMK) -C $(SAMPLE) && \
 	$(LATEXMK) $(SAMPLE)
+
+$(PROJNAME).pdf: test
+
+ctan: $(PROJNAME).pdf
+	ctanify --pkgname=$(PROJNAME) --notds --no-skip README.md $(THEMEDIR)/beamer*themetamu.sty $(SAMPLEDIR)/$(PROJNAME)*.{tex,pdf,bib}
 
 clean:
 	cd $(SAMPLEDIR) && \
